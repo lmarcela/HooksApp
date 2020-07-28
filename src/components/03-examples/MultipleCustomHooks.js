@@ -4,8 +4,8 @@ import { useFetch } from "../../hooks/useFetch";
 import { useCounter } from "../../hooks/useCounter";
 
 export const MultipleCustomHooks = () => {
-  const { state, increment } = useCounter(1);
-  const { data, loading, error } = useFetch(
+  const { state, increment, decrement, reset } = useCounter(1);
+  const { data, loading } = useFetch(
     `https://www.breakingbadapi.com/api/quotes/${state}`
   );
   const { author, quote } = !!data && data[0];
@@ -22,8 +22,28 @@ export const MultipleCustomHooks = () => {
           <footer className="blockquote-footer">{author}</footer>
         </blockquote>
       )}
+      {state < 30 && (
+        <>
+          <button className="btn btn-primary" onClick={() => increment(1)}>
+            Siguiente quote
+          </button>
+          <br />
+          <br />
+        </>
+      )}
 
-      <button className="btn btn-primary" onClick={()=>increment(1)}>Siguiente quote</button>
+      {state !== 1 && (
+        <>
+          <button className="btn btn-primary" onClick={() => decrement(1)}>
+            Anterior quote
+          </button>
+          <br />
+          <br />
+          <button className="btn btn-primary" onClick={reset}>
+            Reset
+          </button>
+        </>
+      )}
     </div>
   );
 };
