@@ -6,7 +6,7 @@ import { useForm } from "../../hooks/useForm";
 const init = () => {
     /* return [
         {
-          id: new Date().getTime,
+          id: new Date().getTime(),
           desc: "Aprender React",
           done: false,
         },
