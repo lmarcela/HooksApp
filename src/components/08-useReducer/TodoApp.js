@@ -21,7 +21,8 @@ export const TodoApp = () => {
 
   useEffect(() => {
       localStorage.setItem('todos',JSON.stringify(todos))
-  }, [todos])
+  }, [todos]);
+
   const handleDelete = (todoId) => {
 
     const action = {
@@ -31,6 +32,14 @@ export const TodoApp = () => {
   
       dispatch(action);
   }
+
+  const handleToggle = (todoId) => {  
+      dispatch({
+        type: "toggle",
+        payload: todoId,
+      });
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if(description.trim().length <= 1){
@@ -62,7 +71,8 @@ export const TodoApp = () => {
           <ul className="list-group list-group-flush">
             {todos.map((todo, i) => (
               <li key={todo.id} className="list-group-item">
-                <p className="text-center">
+                <p className={`${todo.done && 'complete'}`} onClick= {
+                    () => handleToggle(todo.id)}>
                   {i + 1}. {todo.desc}
                 </p>
                 <button className="btn btn-danger" onClick= {
