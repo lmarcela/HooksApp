@@ -26,4 +26,22 @@ describe("Pruebas en <todoReducer />", () => {
         done: false,
       }]);
   });
+
+  test("debe de borrar un TODO", () => {
+    const state = todoReducer(demoTodos, {
+        type: "delete",
+        payload: 2,
+      });
+      expect(state.length).toBe(1);
+      expect(state).toEqual([demoTodos[0]]);
+  });
+
+  test("debe de hacer el Toggle del TODO", () => {
+    const state = todoReducer(demoTodos, {
+        type: "toggle",
+        payload: 2,
+      });
+      expect(state[1].done).toBe(true);
+      expect(state[0]).toEqual(demoTodos[0]);
+  });
 });
