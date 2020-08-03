@@ -1,5 +1,3 @@
-import React from "react";
-import { shallow } from "enzyme";
 import "@testing-library/jest-dom";
 import { todoReducer } from "../../../components/08-useReducer/todoReducer";
 import { demoTodos } from "../../datosFijos/demoTodos";
