@@ -1,8 +1,8 @@
 import React from "react";
 import { mount } from "enzyme";
 import "@testing-library/jest-dom";
-import { HomeScreen } from "../../components/09-useContext/HomeScreen";
-import { UserContext } from "../../components/09-useContext/UserContext";
+import { HomeScreen } from "../../../components/09-useContext/HomeScreen";
+import { UserContext } from "../../../components/09-useContext/UserContext";
 
 describe("Pruebas en <HomeScreen />", () => {
   const user = {
