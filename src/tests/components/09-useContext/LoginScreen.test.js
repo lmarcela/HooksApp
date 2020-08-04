@@ -6,10 +6,6 @@ import { LoginScreen } from "../../../components/09-useContext/LoginScreen";
 
 describe("Pruebas en <LoginScreen />", () => {
     const setUser = jest.fn();
-  const user = {
-    name: "Marcela",
-    email: "marcela@gmail.com",
-  };
   const wrapper = mount(
     <UserContext.Provider
       value={{
